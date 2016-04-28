@@ -1,6 +1,6 @@
 use master 
 go
-
+--Create database
 IF EXISTS (SELECT * FROM sys.databases WHERE [name] = 'dbLibraryMS')
 drop database dbLibraryMS
 go 
@@ -10,6 +10,7 @@ GO
 USE dbLibraryMS
 GO
 
+--create the book table
 CREATE TABLE Book
 (
 BookId int PRIMARY KEY NOT NULL,
@@ -18,6 +19,7 @@ PublisherName varchar (50) NOT NULL
 )
 GO
 
+--create the book authors table
 CREATE TABLE Book_Authors
 (
 BookId int PRIMARY KEY NOT NULL,
@@ -25,6 +27,7 @@ AuthorName varchar (50) NOT NULL
 )
 GO
 
+--create the publisher table
 CREATE TABLE Publisher
 (
 Name varchar (50) PRIMARY KEY NOT NULL,
@@ -33,6 +36,7 @@ Phone varchar (25) NOT NULL
 )
 GO
 
+--create the book copies table
 CREATE TABLE Book_Copies
 (
 BookId int NOT NULL,
@@ -41,6 +45,7 @@ No_Of_Copies int NOT NULL
 )
 GO
 
+--create the book loans table
 CREATE TABLE Book_Loans
 (
 BookId int NOT NULL,
@@ -51,6 +56,7 @@ DueDate date NOT NULL
 )
 GO
 
+--create the library branch table
 CREATE TABLE Library_Branch
 (
 BranchId int PRIMARY KEY NOT NULL,
@@ -59,6 +65,7 @@ BranchName varchar (50) NOT NULL,
 )
 GO
 
+--create the borrower table
 CREATE TABLE Borrower
 (
 CardNo int PRIMARY KEY NOT NULL,
@@ -67,6 +74,7 @@ Name varchar (50) NOT NULL,
 Phone varchar (25) NOT NULL
 )
 GO
+
 
 INSERT INTO Book
 VALUES (1, 'The Lost Tribe', 'Island Publishers'),
